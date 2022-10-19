@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'package:Cryptonoma/widgets/darkcolor.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class streams extends StatefulWidget {
    const streams({Key key}) : super(key: key);
@@ -26,6 +28,7 @@ class _streamsState extends State<streams> {
     return Container(
       child: Column(
         children: [
+          SizedBox(height: 200,),
           // receive data from stream using streambuilder
           StreamBuilder(
               //initial data is optional
@@ -34,15 +37,53 @@ class _streamsState extends State<streams> {
               stream: streamController.stream,
               //snap use to receive data
               builder: (context,snap){
-              return Text( "Age ${snap.data}");
+              return Text( "Age ${snap.data}",
+              style:
+              GoogleFonts.comfortaa(
+                fontSize: 15,
+                color: DarkColor.white,
+              ),);
 
           }),
+          SizedBox(height: 20,),
           GestureDetector(
             onTap: (){
               //pass data to stream
               streamController.sink.add(++count);
             },
-            child: Text("up"),
+            child: Container(
+                color: Colors.white,
+                width: 200,
+                child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: Text("PLUS",
+                style: GoogleFonts.comfortaa(
+                  fontSize: 15,
+                  color: DarkColor.black,
+                ),),
+              ),
+            )),
+          ),
+          SizedBox(height: 20,),
+          GestureDetector(
+            onTap: (){
+              //pass data to stream
+              streamController.sink.add(--count);
+            },
+            child: Container(
+                color: Colors.white,
+                width: 200,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(
+                    child: Text("MINUS",
+                      style: GoogleFonts.comfortaa(
+                        fontSize: 15,
+                        color: DarkColor.black,
+                      ),),
+                  ),
+                )),
           )
 
         ],
