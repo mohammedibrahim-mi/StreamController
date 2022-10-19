@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:Cryptonoma/widgets/darkcolor.dart';
+import 'package:Sample/widgets/darkcolor.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
